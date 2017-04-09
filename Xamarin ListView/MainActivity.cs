@@ -1,7 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Android.App;
 using Android.Widget;
 using Android.OS;
+using Android.Views;
 
 namespace Xamarin_ListView
 {
@@ -29,6 +31,20 @@ namespace Xamarin_ListView
             ListViewAdapter adapter = new ListViewAdapter (this, items);
 
             listView.Adapter = adapter;
+
+            listView.ItemClick += ListViewOnItemClick;
+
+            listView.LongClick += ListViewOnLongClick;
+        }
+
+        private void ListViewOnLongClick (object sender, View.LongClickEventArgs longClickEventArgs)
+        {
+            Console.WriteLine("Long clicked");
+        }
+
+        private void ListViewOnItemClick (object sender, AdapterView.ItemClickEventArgs itemClickEventArgs)
+        {
+            Console.WriteLine("Single clicked");
 
         }
     }
