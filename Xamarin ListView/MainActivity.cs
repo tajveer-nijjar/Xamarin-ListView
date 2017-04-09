@@ -16,14 +16,13 @@ namespace Xamarin_ListView
         {
             base.OnCreate(bundle);
 
-            items = new List<string> ();
-            items.Add ("Bob");
-            items.Add ("Tom");
-            items.Add ("Jim");
+            SetContentView (Resource.Layout.Main);
+
+            items = new List<string> {"Bob", "Tom", "Jim"};
 
             listView = FindViewById<ListView> (Resource.Id.myListView);
 
-            ArrayAdapter<string> adapter = new ArrayAdapter<string> (this, Android.Resource.Layout.SimpleListItem1, items);
+            ListViewAdapter adapter = new ListViewAdapter (this, items);
 
             listView.Adapter = adapter;
 
