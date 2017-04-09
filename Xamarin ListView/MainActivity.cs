@@ -8,7 +8,7 @@ namespace Xamarin_ListView
     [Activity(Label = "Xamarin_ListView", MainLauncher = true, Icon = "@drawable/icon")]
     public class MainActivity : Activity
     {
-        private List<string> items;
+        private List<Person> items;
         private ListView listView;
 
 
@@ -18,7 +18,11 @@ namespace Xamarin_ListView
 
             SetContentView (Resource.Layout.Main);
 
-            items = new List<string> {"Bob", "Tom", "Jim"};
+            items = new List<Person>
+            {
+                new Person () {FirstName = "Bob", LastName = "Marshal"},
+                new Person() { FirstName = "Sarah", LastName = "Marshal" }
+            };
 
             listView = FindViewById<ListView> (Resource.Id.myListView);
 

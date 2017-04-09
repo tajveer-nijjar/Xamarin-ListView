@@ -12,12 +12,12 @@ using Android.Widget;
 
 namespace Xamarin_ListView
 {
-    class ListViewAdapter: BaseAdapter<string>
+    class ListViewAdapter: BaseAdapter<Person>
     {
-        private List<string> _items;
+        private List<Person> _items;
         private Context _context;
 
-        public ListViewAdapter(Context context, List<string> items)
+        public ListViewAdapter(Context context, List<Person> items)
         {
             _context = context;
             _items = items;
@@ -38,8 +38,10 @@ namespace Xamarin_ListView
             }
 
             TextView txtName = row.FindViewById<TextView> (Resource.Id.txtName);
+            TextView txtLastName = row.FindViewById<TextView> (Resource.Id.txtLastName);
 
-            txtName.Text = _items[position];
+            txtName.Text = _items[position].FirstName;
+            txtLastName.Text = _items[position].LastName;
 
             return row;
         }
@@ -49,7 +51,7 @@ namespace Xamarin_ListView
             get { return _items.Count; }
         }
 
-        public override string this [int position]
+        public override Person this [int position]
         {
             get { return _items[position]; }
         }

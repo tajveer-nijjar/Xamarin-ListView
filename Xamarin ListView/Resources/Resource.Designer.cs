@@ -60,8 +60,11 @@ namespace Xamarin_ListView
 		public partial class Id
 		{
 			
+			// aapt resource value: 0x7f050002
+			public const int myListView = 2131034114;
+			
 			// aapt resource value: 0x7f050001
-			public const int myListView = 2131034113;
+			public const int txtLastName = 2131034113;
 			
 			// aapt resource value: 0x7f050000
 			public const int txtName = 2131034112;
